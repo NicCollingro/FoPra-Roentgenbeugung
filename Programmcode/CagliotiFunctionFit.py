@@ -25,7 +25,7 @@ def extract_value_and_error(value_str):
 
 
 # Datei einlesen
-file_path = '/Users/niccollingro/Desktop/FoPra lokal/Röntgenbeugung/PythonSkripts/pythonProject/Datenlisten/LaB6-Reflexliste.txt'
+file_path = 'PFAD'
 data = pd.read_csv(file_path, delimiter='\t')
 
 # Extrahieren der Werte und Fehler aus der Spalte "Pos. [°2Th.]" und "FWHM links [°2Th.]"
@@ -88,7 +88,7 @@ plt.xlabel(r'$\theta$ in [deg]')
 plt.ylabel('Halbwertsbreite in [deg]')
 plt.legend()
 plt.grid(False)
-plt.savefig('/Users/niccollingro/Desktop/FoPra lokal/Röntgenbeugung/Versuchsauswertung/Plots/Caglioti-Fit.pdf', format='pdf')
+plt.savefig('PFAD', format='pdf')
 plt.show()
 
 # Zeige die Parameter des Fits an

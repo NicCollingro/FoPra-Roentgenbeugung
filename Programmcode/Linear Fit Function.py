@@ -1,13 +1,7 @@
-import locale
-
-import pandas as pd
 import matplotlib.pyplot as plt
-import re
 from scipy.optimize import curve_fit
 import numpy as np
 import locale
-
-from FitFunction import initial_guess
 
 locale.setlocale(locale.LC_NUMERIC, 'de_DE.UTF-8')
 
@@ -61,7 +55,7 @@ plt.legend()
 
 #Plot anzeigen
 plt.grid(False)
-plt.savefig('/Users/niccollingro/Desktop/FoPra lokal/Röntgenbeugung/Versuchsauswertung/Plots/Linear_a_fit.pdf', format='pdf')
+plt.savefig('PFAD', format='pdf')
 plt.show()
 
 #Fit-Parameter ausgeben
