@@ -48,14 +48,14 @@ y_values = np.array(y_values)
 y_errors = np.array(y_errors)
 
 theta = np.radians(x_values / 2)
-theta_error = np.radians(y_errors / 2)
+FWHM_error = np.radians(y_errors / 2)
 
 def cogliotti_function(theta, A,B,C):
     return np.sqrt(A + B*np.tan(theta) + C*(np.tan(theta))**2)
 
 initial_guess = [0, 0, 0]
 
-popt, pcov = curve_fit(cogliotti_function, theta, y_values, sigma=theta_error, p0=initial_guess)
+popt, pcov = curve_fit(cogliotti_function, theta, y_values, sigma=FWHM_error, p0=initial_guess)
 
 A_opt, B_opt, C_opt = popt
 
@@ -63,7 +63,7 @@ perr=np.sqrt(np.diag(pcov))
 
 A_err, B_err, C_err = perr
 
-plt.errorbar(x_values, y_values, yerr=theta_error, fmt='o', label='Messdaten mit Fehler', ecolor='red', capsize=5)
+plt.errorbar(x_values, y_values, yerr=FWHM_error, fmt='o', label='Messdaten mit Fehler', ecolor='red', capsize=5)
 
 
 
