@@ -40,9 +40,9 @@ errors_array_rad = np.radians(errors_array / 2)
 thetarad = np.radians(pos_2Th_array / 2)
 
 
-h = np.array([1, 2, 2, 3, 2, 4, 3, 4, 4, 3, 4, 5, 4])
-k = np.array([1, 0, 2, 1, 2, 0, 3, 2, 2, 3, 4, 3, 4])
-l = np.array([1, 0, 0, 1, 2, 0, 1, 0, 2, 3, 0, 1, 2])
+h = np.array([1, 2, 2, 3, 2, 4, 3, 4, 4, 3, 5, 4, 5])
+k = np.array([1, 0, 2, 1, 2, 0, 3, 2, 2, 3, 1, 4, 3])
+l = np.array([1, 0, 0, 1, 2, 0, 1, 0, 2, 3, 1, 0, 1])
 values = []
 errors = []
 
