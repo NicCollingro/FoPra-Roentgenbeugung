@@ -11,7 +11,7 @@ def cagliotiFunc (thetavalue):
     return np.sqrt(A + B*np.tan(thetavalue) + C*(np.tan(thetavalue)**2))
 
 # Datei einlesen
-file_path = "/Users/niccollingro/Desktop/FoPra/Röntgenbeugung/GitRepo/Messdaten/CeO2_nano-Reflexliste.txt"
+file_path = "/Users/niccollingro/Desktop/FoPra/Röntgenbeugung/GitRepo/Messdaten/PdAu-Reflexliste.txt"
 data = []
 
 wavelength = 1.54056e-10  # Korrekte Wellenlänge in Metern (1.54056 Å)
@@ -67,7 +67,7 @@ theta_array = np.array(data)
 theta_array = np.radians(theta_array / 2)
 
 # Berechnung von s0
-s0 = (2 * np.sin(theta_array) / wavelength)
+s0 = (2 * np.sin(theta_array) / wavelength)**2
 
 #create corrected width array
 width_corrected = []
@@ -75,9 +75,9 @@ width_corrected_y = []
 
 #correction width
 for i in range(len(fwhm_values)):
-    temp = (fwhm_values[i]) - (cagliotiFunc(theta_array[i]))
+    temp = (fwhm_values[i]**2) - (cagliotiFunc(theta_array[i])**2)
     width_corrected.append(temp)
-    width_corrected_y.append(width_corrected[i] * (np.cos(theta_array[i])/wavelength))
+    width_corrected_y.append(width_corrected[i] * (np.cos(theta_array[i])/wavelength)**2)
 
 # Lineare Regression mit scipy.stats.linregress
 slope, intercept, r_value, p_value, std_err = linregress(s0, width_corrected_y)
@@ -96,10 +96,10 @@ print(f"Intercept (Achsenabschnitt): {intercept:.6f}")
 
 # Plot der Punkte und der Regressionslinie
 def scientific_notation(y, pos):
-    return f'{y*1e-9:.1f}'#f'{y * 1e10:.4f}'  # Multipliziert den Wert mit 10^10 und zeigt ihn an
+    return f'{y*1e-20:.1f}'#f'{y * 1e10:.4f}'  # Multipliziert den Wert mit 10^10 und zeigt ihn an
 
 def scientific_notationx(y, pos):
-    return f'{y*1e-10:.1f}'#f'{y * 1e10:.4f}'  # Multipliziert den Wert mit 10^10 und zeigt ihn an
+    return f'{y*1e-20:.1f}'#f'{y * 1e10:.4f}'  # Multipliziert den Wert mit 10^10 und zeigt ihn an
 
 # Formatter auf die y-Achse anwenden
 plt.gca().yaxis.set_major_formatter(FuncFormatter(scientific_notation))
@@ -108,10 +108,10 @@ plt.scatter(s0, width_corrected_y, color='#004877', label='Datenpunkte')
 plt.plot(s0, regression_line, color='red', label='Regression', linestyle='-')
 #plt.title(r'$\delta(s_0) vs. s_0$ mit Regressionslinie')
 plt.title('')
-plt.xlabel(r'$s_0 \, [\text{m}^{-10}]$')
-plt.ylabel(r'$\delta(s_0) [\text{m}^{-9}]$')
+plt.xlabel(r'$s_0 \, [\text{m}^{-20}]$')
+plt.ylabel(r'$\delta(s_0) [\text{m}^{-20}]$')
 plt.legend()
 plt.grid(False)
 plt.tight_layout()
-#plt.savefig('/Users/niccollingro/Desktop/FoPra/Röntgenbeugung/Versuchsauswertung/Plots/CeO2_nano_ds.pdf', format='PDF')
+plt.savefig('/Users/niccollingro/Desktop/FoPra/Röntgenbeugung/Versuchsauswertung/Plots/PdAu_ds_gauss.pdf', format='PDF')
 plt.show()
