@@ -1,4 +1,4 @@
-﻿Nr.	Pos. [°2Th.]	d-Wert [Å]	Höhe [cts]	FWHM links [°2Th.]	FWHM rechts [°2Th.]	Form links	Form rechts	Integrale Breite [°2Th.]	Fläche [cts*°2Th.]	Untergr.[cts]	Status	nur Kristallitgrösse [Å]	nur Mikrostrain [%]	Kristallitgrösse [Å]	Microstrain [%]
+Nr.	Pos. [°2Th.]	d-Wert [Å]	Höhe [cts]	FWHM links [°2Th.]	FWHM rechts [°2Th.]	Form links	Form rechts	Integrale Breite [°2Th.]	Fläche [cts*°2Th.]	Untergr.[cts]	Status	nur Kristallitgrösse [Å]	nur Mikrostrain [%]	Kristallitgrösse [Å]	Microstrain [%]
 1	28.4512(2)	3.13460	11031.46	0.0935(7)		1.20(1)		0.132315	1460(4)	455.10	einbezogene	2924	0.05360	2955	-0.06069
 2	32.9869(4)	2.71322	3807.98	0.094(1)		1.27(3)		0.129837	494(3)	433.06	einbezogene	3948	0.03437	4026	-0.03729
 3	47.3933(2)	1.91667	11268.90	0.0918(5)		1.24(1)		0.128066	1443(4)	385.99	einbezogene	4018	0.02385	4092	-0.03146
